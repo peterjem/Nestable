@@ -34,6 +34,7 @@
             itemClass       : 'dd-item',
             dragClass       : 'dd-dragel',
             handleClass     : 'dd-handle',
+            nomoveClass     : 'dd-nomove',
             collapsedClass  : 'dd-collapsed',
             placeClass      : 'dd-placeholder',
             noDragClass     : 'dd-nodrag',
@@ -429,6 +430,10 @@
                 if (depth > opt.maxDepth) {
                     return;
                 }
+                 if (this.dragEl.hasClass(opt.nomoveClass)) {
+                 return;
+            }
+                
                 var before = e.pageY < (this.pointEl.offset().top + this.pointEl.height() / 2);
                     parent = this.placeEl.parent();
                 // if empty create new list to replace empty placeholder
